@@ -78,7 +78,7 @@ class spashl(paroda):
         if question == "уход" and self.paroda == "ovcharka":
             print("гладить каждый день")
         if question =="уход" and self.paroda == "buldog":
-            print("чесать за ухом")
+            print("чесать за ушком")
 
 
 dog4 = spashl()
