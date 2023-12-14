@@ -1,4 +1,4 @@
-
+import random
 import string, math
 
 
@@ -372,9 +372,33 @@ def duplicate_count(text: str) -> str:
 
 print(duplicate_count('aaaiiIIooOO'))
 
-massiv = [1,2,3,4,5]
-tupler = (1,2,3,4,5)
-print(massiv)
-print(tupler)
-massiv.append(45)
+a = []
+n = 10
+
+for i in range(n):
+    a.append(random.randint(1, 99))
+print(a)
+
+for i in range(n - 1):
+    for j in range(n - i - 1):
+        if a[j] > a[j + 1]:
+            a[j], a[j + 1] = a[j + 1], a[j]
+
+print(a)
+
+
+def sort_array(mass:list) -> list:
+    """Вам нужно отсортировать нечетные числа в порядке возрастания, оставив четные числа на исходных позициях"""
+
+    for i, el in enumerate(mass):
+        count = i + 1
+        while count < len(mass):
+            if mass[i] % 2 == 1 and mass[count] % 2 == 1 and mass[i] > mass[count]:
+                mass[i], mass[count] = mass[count], mass[i]
+            count += 1
+
+    return mass
+
+
+
 
