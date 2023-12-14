@@ -387,7 +387,7 @@ for i in range(n - 1):
 print(a)
 
 
-def sort_array(mass:list) -> list:
+def sort_array(mass: list) -> list:
     """Вам нужно отсортировать нечетные числа в порядке возрастания, оставив четные числа на исходных позициях"""
 
     for i, el in enumerate(mass):
@@ -400,5 +400,40 @@ def sort_array(mass:list) -> list:
     return mass
 
 
+def high(texts: str) -> str:
+    """дается строка считаем буквы по их порядку в алфавите и складываем"""
 
+    # alfav = string.ascii_lowercase
+    texts = texts.split(" ")
+    mass = []
+    i = 0
+
+    while i < len(texts):
+        sums = 0
+        for el in texts[i]:
+            # sums += alfav.index(el) + 1
+            sums += ord(el) - 96
+        mass.append(sums)
+        i += 1
+
+    for i, el in enumerate(mass):
+        count = i + 1
+        while count < len(mass):
+            if mass[i] == mass[count] or mass[i] > mass[count]:
+                mass[i], mass[count] = mass[count], mass[i]
+                texts[i], texts[count] = texts[count], texts[i]
+            count += 1
+    answer = texts[-1]
+
+    return answer
+
+# мастер класс с кодварса как пример для запоминания
+
+# def high(x):
+#     words=x.split(' ')
+#     list = []
+#     for i in words:
+#         scores = [sum([ord(char) - 96 for char in i])]
+#         list.append(scores)
+#     return words[list.index(max(list))]
 
