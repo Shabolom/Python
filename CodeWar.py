@@ -437,3 +437,18 @@ def high(texts: str) -> str:
 #         list.append(scores)
 #     return words[list.index(max(list))]
 
+
+def find_missing_letter(chars: list) -> str:
+    """находим нелостающие буквы по порядку"""
+
+    alf = string.ascii_letters
+    answer = ""
+    slices = alf[alf.index(chars[0]): alf.index(chars[-1]) + 1]
+
+    for el in slices:
+        if el not in chars:
+            answer += el
+    return answer
+
+
+print(find_missing_letter(['a','b','d','f']))
